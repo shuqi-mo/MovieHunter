@@ -39,7 +39,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="97ea92f5-d07b-40b5-b7ab-c0d48895ea17" />
   <component name="MavenImportPreferences">
@@ -93,17 +93,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.test" />
@@ -126,6 +115,9 @@
       <workItem from="1605837766399" duration="2984000" />
       <workItem from="1605847193863" duration="840000" />
       <workItem from="1605860795849" duration="1979000" />
+      <workItem from="1605889479498" duration="141000" />
+      <workItem from="1606120999087" duration="4091000" />
+      <workItem from="1606128170956" duration="312000" />
     </task>
     <servers />
   </component>
