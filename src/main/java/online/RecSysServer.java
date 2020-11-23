@@ -28,16 +28,22 @@ public class RecSysServer {
         InetSocketAddress inetAddress = new InetSocketAddress("0.0.0.0", port);
         //创建Jetty服务器
         Server server = new Server(inetAddress);
-        //创建Jetty服务器的环境handler
+
+        //创建servletcontexthandler
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");
         context.setWelcomeFiles(new String[] { "index.html" });
         context.getMimeTypes().addMimeMapping("txt", "text/plain;charset=utf-8");
+
+        //servlet主要功能在于交互式的浏览和修改数据，生成动态Web内容
         context.addServlet(DefaultServlet.class, "/");
         context.addServlet(new ServletHolder(new MovieService()), "/getmovie");
-        //设置Jetty的环境handler
+        context.addServlet(new ServletHolder(new UserService())), "/getuser");
+
+        //设置url handler
         server.setHandler(context);
         System.out.print("RecSys Server has started.");
+        
         //启动Jetty服务器
         server.start();
         server.join();
