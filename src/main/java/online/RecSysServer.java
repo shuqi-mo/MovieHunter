@@ -1,6 +1,8 @@
 package online;
 
 import java.net.InetSocketAddress;
+
+import online.service.*;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -38,7 +40,8 @@ public class RecSysServer {
         //servlet主要功能在于交互式的浏览和修改数据，生成动态Web内容
         context.addServlet(DefaultServlet.class, "/");
         context.addServlet(new ServletHolder(new MovieService()), "/getmovie");
-        context.addServlet(new ServletHolder(new UserService())), "/getuser");
+        context.addServlet(new ServletHolder(new UserService()), "/getuser");
+        context.addServlet(new ServletHolder(new SimilarMovieService()), "/getsimilarmovie");
 
         //设置url handler
         server.setHandler(context);

@@ -61,7 +61,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SparrowRecSys" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -93,6 +93,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.test" />
@@ -118,6 +131,8 @@
       <workItem from="1605889479498" duration="141000" />
       <workItem from="1606120999087" duration="4091000" />
       <workItem from="1606128170956" duration="312000" />
+      <workItem from="1606207512731" duration="4108000" />
+      <workItem from="1606218830480" duration="3496000" />
     </task>
     <servers />
   </component>
@@ -137,10 +152,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="786" y="335" key="FileChooserDialogImpl" timestamp="1605847202871">
+    <state x="786" y="335" key="FileChooserDialogImpl" timestamp="1606220332663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="786" y="335" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605847202871" />
+    <state x="786" y="335" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606220332663" />
     <state width="917" height="284" key="GridCell.Tab.0.bottom" timestamp="1605714215706">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -177,5 +192,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="486" y="170" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605712949021" />
+    <state x="1102" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1606220146873">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1102" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1606220146873" />
   </component>
 </project>

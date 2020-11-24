@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+// 功能：获取电影信息
+
 public class MovieService extends HttpServlet {
     // 向客户端发送数据找HttpServletResponse,从客户端取数据找HttpServletRequest
-    protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         try {
             //设置HTP协议中content-type响应头字段的值
             response.setContentType("application/json");
@@ -22,8 +23,8 @@ public class MovieService extends HttpServlet {
             response.setHeader("Access-Control-Allow-Origin", "*");
 
             //获取电影id和DataManager中的电影对象
-            String movieId = request.getParameter("id");
-            Movie movie = DataManager.getInstance().getMovieById(Integer.parseInt(movieId));
+            String movieid = request.getParameter("id");
+            Movie movie = DataManager.getInstance().getMovieById(Integer.parseInt(movieid));
 
             //把电影对象转换成json格式并返回
             if (null != movie) {
