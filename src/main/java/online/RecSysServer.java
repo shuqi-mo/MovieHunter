@@ -42,6 +42,8 @@ public class RecSysServer {
         context.addServlet(new ServletHolder(new MovieService()), "/getmovie");
         context.addServlet(new ServletHolder(new UserService()), "/getuser");
         context.addServlet(new ServletHolder(new SimilarMovieService()), "/getsimilarmovie");
+        context.addServlet(new ServletHolder(new ReconGenre()), "/getrecommendation");
+        context.addServlet(new ServletHolder(new ReconUser()), "/getrecforyou");
 
         //设置url handler
         server.setHandler(context);
