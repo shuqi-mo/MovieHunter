@@ -21,6 +21,6 @@ public class Rating {
     public float getRating() { return rating; }
 
     //timestamp
-    public void setTimestamp(String timestamp) { this.timestamp = timestamp; }
+    public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
     public String getTimestamp() { return timestamp; }
 }

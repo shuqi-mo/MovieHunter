@@ -29,7 +29,7 @@ public class Movie{
     ArrayList<String> Starring;
     String Production_Country;
     String language;
-    String release_time;
+    int release_time;
     int length;
     int rating_num;
     double average_rating;
@@ -97,8 +97,8 @@ public class Movie{
     public String getLanguage() { return language; }
 
     //Release_time
-    public void setRelease_time(String release_time) { this.release_time = release_time; }
-    public String getRelease_time () { return release_time; }
+    public void setRelease_time(int release_time) { this.release_time = release_time; }
+    public int getRelease_time () { return release_time; }
 
     //length
     public void setLength(int length) { this.length = length; }
