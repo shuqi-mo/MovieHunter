@@ -61,12 +61,26 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SparrowRecSys" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
-  <component name="RunManager" selected="Application.RecSysServer">
+  <component name="RunManager" selected="Application.Embedding">
+    <configuration name="Embedding" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="offline.Embedding" />
+      <module name="Movia" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="offline.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecSysServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="online.RecSysServer" />
       <module name="movia" />
@@ -93,8 +107,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Embedding" />
         <item itemvalue="Application.RecSysServer" />
         <item itemvalue="Application.test" />
       </list>
@@ -127,7 +155,9 @@
       <workItem from="1609841330341" duration="754000" />
       <workItem from="1609856204352" duration="6026000" />
       <workItem from="1609894705672" duration="1425000" />
-      <workItem from="1609897676529" duration="2186000" />
+      <workItem from="1609897676529" duration="2815000" />
+      <workItem from="1609906680729" duration="344000" />
+      <workItem from="1609907097443" duration="6763000" />
     </task>
     <servers />
   </component>
@@ -147,26 +177,30 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="786" y="335" key="FileChooserDialogImpl" timestamp="1609897717326">
+    <state x="1188" y="435" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog" timestamp="1609907108316">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="786" y="335" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609897717326" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1609896138610">
+    <state x="1188" y="435" key="#com.intellij.framework.addSupport.AddSupportForSingleFrameworkDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609907108316" />
+    <state x="786" y="335" key="FileChooserDialogImpl" timestamp="1609906710770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1609896138610">
+    <state x="786" y="335" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609906710770" />
+    <state width="917" height="288" key="GridCell.Tab.0.bottom" timestamp="1609913781109">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1609896138610">
+    <state width="917" height="288" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609913781109" />
+    <state width="917" height="288" key="GridCell.Tab.0.center" timestamp="1609913781108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1609896138610">
+    <state width="917" height="288" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609913781108" />
+    <state width="917" height="288" key="GridCell.Tab.0.left" timestamp="1609913781108">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
+    <state width="917" height="288" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609913781108" />
+    <state width="917" height="288" key="GridCell.Tab.0.right" timestamp="1609913781109">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="917" height="288" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609913781109" />
     <state width="915" height="351" key="GridCell.Tab.1.bottom" timestamp="1605714215697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -183,10 +217,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="915" height="351" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605714215697" />
-    <state x="486" y="170" key="SettingsEditor" timestamp="1605712949021">
+    <state x="882" y="140" key="SettingsEditor" timestamp="1609913065621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="486" y="170" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605712949021" />
+    <state x="882" y="140" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1609913065621" />
     <state x="1102" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1606220146873">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
