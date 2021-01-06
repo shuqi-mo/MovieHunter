@@ -61,12 +61,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SparrowRecSys" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.test">
+  <component name="RunManager" selected="Application.RecSysServer">
     <configuration name="RecSysServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="online.RecSysServer" />
       <module name="movia" />
@@ -93,21 +93,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
         <item itemvalue="Application.RecSysServer" />
+        <item itemvalue="Application.test" />
       </list>
     </recent_temporary>
   </component>
@@ -137,6 +126,8 @@
       <workItem from="1609829420547" duration="4312000" />
       <workItem from="1609841330341" duration="754000" />
       <workItem from="1609856204352" duration="6026000" />
+      <workItem from="1609894705672" duration="1425000" />
+      <workItem from="1609897676529" duration="2186000" />
     </task>
     <servers />
   </component>
@@ -156,26 +147,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="786" y="335" key="FileChooserDialogImpl" timestamp="1606220332663">
+    <state x="786" y="335" key="FileChooserDialogImpl" timestamp="1609897717326">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="786" y="335" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606220332663" />
-    <state width="917" height="284" key="GridCell.Tab.0.bottom" timestamp="1605714215706">
+    <state x="786" y="335" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609897717326" />
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1609896138610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="917" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605714215706" />
-    <state width="917" height="284" key="GridCell.Tab.0.center" timestamp="1605714215706">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1609896138610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="917" height="284" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605714215706" />
-    <state width="917" height="284" key="GridCell.Tab.0.left" timestamp="1605714215706">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1609896138610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="917" height="284" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605714215706" />
-    <state width="917" height="284" key="GridCell.Tab.0.right" timestamp="1605714215706">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1609896138610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="917" height="284" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605714215706" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609896138610" />
     <state width="915" height="351" key="GridCell.Tab.1.bottom" timestamp="1605714215697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

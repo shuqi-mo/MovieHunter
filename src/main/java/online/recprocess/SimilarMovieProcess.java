@@ -6,6 +6,7 @@ import online.datamanager.Movie;
 import java.util.*;
 
 public class SimilarMovieProcess {
+    // 获取推荐列表
     public static List<Movie> getRecList(int movieId, int size, String model) {
         Movie movie = DataManager.getInstance().getMovieById(movieId);
         if(null == movie)
@@ -37,7 +38,7 @@ public class SimilarMovieProcess {
         HashMap<Movie, Double> candidateScoreMap = new HashMap<>();
         for(Movie candidate : candidates) {
             double similarity;
-            switch(model) {
+            switch (model) {
                 case "emb":
                     similarity = calculateEmbSimilarScore(movie, candidate);
                     break;
@@ -51,6 +52,7 @@ public class SimilarMovieProcess {
         return rankedList;
     }
 
+    // 相似度计算
     public static double calculateSimilarScore(Movie movie, Movie candidate) {
         int sameGenreCount = 0;
         for(String genre : movie.getGenres()) {
@@ -65,9 +67,8 @@ public class SimilarMovieProcess {
     }
 
     public static double calculateEmbSimilarScore(Movie movie, Movie candidate) {
-        if(null == movie || null == candidate) {
+        if(null == movie || null == candidate)
             return -1;
-        }
         return movie.getEmb().calculated_similarity(candidate.getEmb());
     }
 }

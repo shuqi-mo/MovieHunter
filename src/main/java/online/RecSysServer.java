@@ -1,7 +1,10 @@
 package online;
 
 import java.net.InetSocketAddress;
+import java.net.URI;
+import java.net.URL;
 
+import online.datamanager.DataManager;
 import online.service.*;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
@@ -31,6 +34,17 @@ public class RecSysServer {
         //创建Jetty服务器
         Server server = new Server(inetAddress);
 
+        URL webRootLocation = this.getClass().getResource("/webroot/index.html");
+        if (webRootLocation == null)
+        {
+            throw new IllegalStateException("Unable to determine webroot URL location");
+        }
+
+        URI webRootUri = URI.create(webRootLocation.toURI().toASCIIString().replaceFirst("/index.html$","/"));
+        System.out.printf("Web Root URI: %s%n", webRootUri.getPath());
+
+        DataManager.getInstance().loadData(webRootUri.getPath() + "sampledata/movies.csv", webRootUri.getPath() + "sampledata/links.csv", webRootUri.getPath() + "sampledata/ratings.csv", webRootUri.getPath() + "modeldata/item2vecEmb.csv", webRootUri.getPath() + "modeldata/userEmb.csv");
+
         //创建servletcontexthandler
         ServletContextHandler context = new ServletContextHandler();
         context.setContextPath("/");
@@ -42,8 +56,6 @@ public class RecSysServer {
         context.addServlet(new ServletHolder(new MovieService()), "/getmovie");
         context.addServlet(new ServletHolder(new UserService()), "/getuser");
         context.addServlet(new ServletHolder(new SimilarMovieService()), "/getsimilarmovie");
-        context.addServlet(new ServletHolder(new ReconGenre()), "/getrecommendation");
-        context.addServlet(new ServletHolder(new ReconUser()), "/getrecforyou");
 
         //设置url handler
         server.setHandler(context);

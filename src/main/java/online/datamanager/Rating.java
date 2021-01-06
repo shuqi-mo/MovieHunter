@@ -6,7 +6,7 @@ public class Rating {
     int movie_id;
     int user_id;
     float rating;
-    String timestamp;
+    long timestamp;
 
     //movie_id
     public void setMovie_id(int movie_id) { this.movie_id = movie_id; }
@@ -22,5 +22,5 @@ public class Rating {
 
     //timestamp
     public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
-    public String getTimestamp() { return timestamp; }
+    public long getTimestamp() { return timestamp; }
 }

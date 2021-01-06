@@ -38,6 +38,7 @@ public class DataManager {
         loadUserEmb(userEmbPath);
     }
 
+    // 加载电影数据
     private void loadMovieData(String movieDataPath) throws Exception {
         System.out.println("Loading movie data from " + movieDataPath + "...");
         boolean skipFirstLine = true;
@@ -74,6 +75,7 @@ public class DataManager {
         System.out.println("Loading movie data complete. " + this.movieMap.size() + " movies in total...");
     }
 
+    // 加载电影embedding
     private void loadMovieEmb(String movieEmbPath) throws Exception {
         System.out.println("Loading movie embedding from " + movieEmbPath + "...");
         int validEmbCount = 0;
@@ -94,6 +96,7 @@ public class DataManager {
         System.out.println("Loading movie embedding complete. " + validEmbCount + " movie embeddings in total.");
     }
 
+    // 加载用户embedding
     private void loadUserEmb(String userEmbPath) throws Exception {
         System.out.println("Loading user embedding from " + userEmbPath + "...");
         int validEmbCount = 0;
