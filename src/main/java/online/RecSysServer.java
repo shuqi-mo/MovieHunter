@@ -43,7 +43,7 @@ public class RecSysServer {
         URI webRootUri = URI.create(webRootLocation.toURI().toASCIIString().replaceFirst("/index.html$","/"));
         System.out.printf("Web Root URI: %s%n", webRootUri.getPath());
 
-        DataManager.getInstance().loadData(webRootUri.getPath() + "sampledata/movies.csv", webRootUri.getPath() + "sampledata/links.csv", webRootUri.getPath() + "sampledata/ratings.csv", webRootUri.getPath() + "modeldata/item2vecEmb.csv", webRootUri.getPath() + "modeldata/userEmb.csv");
+        DataManager.getInstance().loadData(webRootUri.getPath() + "sampledata/movies.csv", webRootUri.getPath() + "sampledata/links.csv", webRootUri.getPath() + "sampledata/ratings.csv", webRootUri.getPath() + "modeldata/item2vecEmb.csv");
 
         //创建servletcontexthandler
         ServletContextHandler context = new ServletContextHandler();

@@ -13,6 +13,8 @@ public class SimilarMovieProcess {
             return new ArrayList<>();
         // 单路召回
         List<Movie> candidates = candidateGenerator(movie);
+        // 基于embedding的召回
+        // List<Movie> candidates = retrievalCandidatesByEmbedding(movie, size);
         List<Movie> rankedList = ranker(movie, candidates, model);
         if(rankedList.size() > size) {
             return rankedList.subList(0, size);
@@ -31,6 +33,23 @@ public class SimilarMovieProcess {
         }
         candidateMap.remove(movie.getId());
         return new ArrayList<>(candidateMap.values());
+    }
+
+    public static List<Movie> retrievalCandidatesByEmbedding(Movie movie, int size) {
+        if(null == movie || null == movie.getEmb())
+            return null;
+        List<Movie> allCandidates = DataManager.getInstance().getMovies(10000, "rating");
+        HashMap<Movie, Double> movieScoreMap = new HashMap<>();
+        for(Movie candidate : allCandidates) {
+            double similarity = calculateEmbSimilarScore(movie, candidate);
+            movieScoreMap.put(candidate, similarity);
+        }
+        List<Map.Entry<Movie, Double>> movieScoreList = new ArrayList<>(movieScoreMap.entrySet());
+        movieScoreList.sort(Map.Entry.comparingByValue());
+        List<Movie> candidates = new ArrayList<>();
+        for(Map.Entry<Movie, Double> movieScoreEntry : movieScoreList)
+            candidates.add(movieScoreEntry.getKey());
+        return candidates.subList(0, Math.min(candidates.size(), size));
     }
 
     //相似度排序

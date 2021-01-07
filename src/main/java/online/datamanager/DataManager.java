@@ -30,12 +30,11 @@ public class DataManager {
         return instance;
     }
 
-    public void loadData(String movieDataPath, String linkDataPath, String ratingDataPath, String movieEmbPath, String userEmbPath) throws Exception {
+    public void loadData(String movieDataPath, String linkDataPath, String ratingDataPath, String movieEmbPath) throws Exception {
         loadMovieData(movieDataPath);
         loadLinkData(linkDataPath);
         loadRatingData(ratingDataPath);
         loadMovieEmb(movieEmbPath);
-        loadUserEmb(userEmbPath);
     }
 
     // 加载电影数据
@@ -94,27 +93,6 @@ public class DataManager {
             }
         }
         System.out.println("Loading movie embedding complete. " + validEmbCount + " movie embeddings in total.");
-    }
-
-    // 加载用户embedding
-    private void loadUserEmb(String userEmbPath) throws Exception {
-        System.out.println("Loading user embedding from " + userEmbPath + "...");
-        int validEmbCount = 0;
-        try (Scanner scanner = new Scanner(new File(userEmbPath))) {
-            while (scanner.hasNextLine()) {
-                String userRawEmbData = scanner.nextLine();
-                String[] userEmbData = userRawEmbData.split(":");
-                if (userEmbData.length == 2) {
-                    User u = getUserById(Integer.parseInt(userEmbData[0]));
-                    if (null == u) {
-                        continue;
-                    }
-                    u.setEmb(Utility.parseEmbStr(userEmbData[1]));
-                    validEmbCount++;
-                }
-            }
-        }
-        System.out.println("Loading user embedding completed. " + validEmbCount + " user embeddings in total...");
     }
 
     private int parseReleaseYear(String rawTitle) {

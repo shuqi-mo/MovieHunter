@@ -14,7 +14,7 @@ import java.io.File
 import java.io.FileWriter
 
 object Embedding {
-  // 电影序列
+  // 处理序列数据
   def processItemSequence(sparkSession: SparkSession, rawSampleDataPath: String) : RDD[Seq[String]] = {
     val ratingsResourcesPath = this.getClass.getResource(rawSampleDataPath)
     val ratingSamples = sparkSession.read.format("csv").option("header", "true").load(ratingsResourcesPath.getPath)
@@ -34,6 +34,7 @@ object Embedding {
     userSeq.select("movieIdStr").rdd.map(r => r.getAs[String]("movieIdStr").split(" ").toSeq)
   }
 
+  // item2vec训练
   def trainItem2vec(sparksession: SparkSession, samples: RDD[Seq[String]], embLength: Int, embOutputFilename: String): Word2VecModel = {
     val word2Vec = new Word2Vec()
       .setVectorSize(embLength)
@@ -48,33 +49,6 @@ object Embedding {
     model
   }
 
-  def generateUserEmb(sparkSession: SparkSession, rawSampleDataPath: String, word2VecModel: Word2VecModel, embLength:Int, embOutputFilename:String): Unit = {
-    val ratingsResourcesPath = this.getClass.getResource(rawSampleDataPath)
-    val ratingSamples = sparkSession.read.format("csv").option("header", "true").load(ratingsResourcesPath.getPath)
-    ratingSamples.show(10, false);
-    val userEmbeddings = new ArrayBuffer[(String, Array[Float])]()
-    ratingSamples.collect().groupBy(_.getAs[String]("userId"))
-      .foreach(user => {
-        val userId = user._1
-        var userEmb = new Array[Float](embLength)
-        userEmb = user._2.foldRight[Array[Float]](userEmb)((row, newEmb) => {
-          val movieId = row.getAs[String]("movieId")
-          val movieEmb = word2VecModel.getVectors.get(movieId)
-          if(movieEmb.isDefined)
-            newEmb.zip(movieEmb.get).map { case(x, y) => x + y}
-          else
-            newEmb
-        })
-        userEmbeddings.append((userId, userEmb))
-      })
-    val embFolderPath = this.getClass.getResource("/webroot/modeldata/")
-    val file = new File(embFolderPath.getPath + embOutputFilename)
-    val bw = new BufferedWriter(new FileWriter(file))
-    for(userEmb <- userEmbeddings)
-      bw.write(userEmb._1 + ":" + userEmb._2.mkString(" ") + "\n")
-    bw.close()
-  }
-
   def main(args: Array[String]): Unit = {
     val conf = new SparkConf()
       .setMaster("local")
@@ -85,6 +59,5 @@ object Embedding {
     val embLength = 10
     val samples = processItemSequence(spark, rawSampleDataPath)
     val model = trainItem2vec(spark, samples, embLength, "item2vecEmb.csv")
-    generateUserEmb(spark, rawSampleDataPath, model, embLength, "userEmb.csv")
   }
 }
