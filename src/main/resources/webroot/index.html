@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--<base href="/">-->
+    <base href="."/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Home | Movie Hunter</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link type="text/plain" rel="author"/>
+    <link href="./css/style.css?v=1.11" rel="stylesheet"/>
+    <link href="./css/my-css.css?v=1.41" rel="stylesheet"/>
+    <link rel="shortcut icon" href="./resources/favicon.ico">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/recsys.js?v=1.11"></script>
+</head>
+<body id="root">
+<div>
+    <div class="my-nav">
+        <h1 id="logo"><a href="#">Movie Hunter</a></h1>
+        <div id="navigation">
+        </div>
+        <div id="sub-navigation">
+            <ul>
+                <li><a href="#">SHOW ALL</a></li>
+                <li><a href="#">LATEST TRAILERS</a></li>
+                <li><a href="#">TOP RATED</a></li>
+                <li><a href="#">MOST COMMENTED</a></li>
+            </ul>
+            <div id="search">
+                    <label for="search-field">SEARCH</label>
+                    <input type="text" name="search field" placeholder="Enter search here" id="search-field" title="Enter search here" class="blink search-field"  />
+            </div>
+        </div>
+
+    </div>
+    <div class="ml4-container" style="min-height: 920px;">
+        <div id="main-container">
+            <div class="frontpage" id="recPage">
+                <div class="frontpage-section-top">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+var getUrl = window.location;
+var baseUrl = getUrl .protocol + "//" + getUrl.host + "/"
+
+addGenreRow('#recPage', 'Action', 'action-collection', 8, baseUrl);
+addGenreRow('#recPage', 'Romance', 'romance-collection', 8, baseUrl);
+addGenreRow('#recPage', 'Thriller', 'thriller-collection', 8, baseUrl);
+addGenreRow('#recPage', 'Comedy', 'comedy-collection', 8, baseUrl);
+addGenreRow('#recPage', 'Drama', 'drama-collection', 8, baseUrl);
+addGenreRow('#recPage', 'Adventure', 'adventure-collection', 8, baseUrl);
+
+</script>
+</html>

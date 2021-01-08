@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html class="no-js" xmlns="http://www.w3.org/1999/html">
+<html class="no-js" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--<base href="/">-->
+    <base href="."/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Home | Movie Hunter</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <link type="text/plain" rel="author"/>
+    <link href="./css/my-css.css?v=2.31" rel="stylesheet"/>
+    <link href="./css/style.css?v=1.11" rel="stylesheet"/>
+    <link rel="shortcut icon" href="./resources/favicon.ico">
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/recsys.js?v=1.21"></script>
+    <style>
+        .movie-row .movie-row-bounds .movie-row-item{
+            display: block;
+        }
+
+        .movie-card-md1{
+            margin:0 5px 15px 0
+        }
+    </style>
+</head>
+<body id="root">
+<div class="movie-header">
+    <h1 class="movie-log"><a href="#">Movie Hunter</a></h1>
+</div>
+<div>
+    <div class="ml4-container" style="min-height: 920px;">
+        <div id="main-container">
+            <div class="movie-alt" id="movie-details-container">
+            </div>
+            <div class="frontpage" id="recPage">
+                <div class="frontpage-section-top">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript">
+
+function getQueryString(name, windowLocation) {
+    var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+    var r = windowLocation.search.substr(1).match(reg);
+    if (r != null) {
+        return unescape(r[2]);
+    }
+    return null;
+};
+
+var windowLocation = window.location;
+var movieId = getQueryString("movieId",windowLocation);
+
+var baseUrl = windowLocation.protocol + "//" + windowLocation.host + "/"
+
+addMovieDetails("movie-details-container", movieId, baseUrl);
+addRelatedMovies("#recPage", "relatedMovies", movieId, baseUrl);
+
+</script>
+</html>

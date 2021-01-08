@@ -2,25 +2,45 @@ package online.datamanager;
 /*
 Rating是一个联系集，用户-电影-用户评分
  */
+
+/**
+ * Rating Class, contains attributes loaded from movielens ratings.csv
+ */
 public class Rating {
-    int movie_id;
-    int user_id;
-    float rating;
+    int movieId;
+    int userId;
+    float score;
     long timestamp;
 
-    //movie_id
-    public void setMovie_id(int movie_id) { this.movie_id = movie_id; }
-    public int getMovie_id() { return movie_id; }
+    public int getMovieId() {
+        return movieId;
+    }
 
-    //user_id
-    public void setUser_id(int user_id) { this.user_id = user_id; }
-    public int getUser_id() { return user_id; }
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
+    }
 
-    //rating
-    public void setRating(float rating) { this.rating = rating; }
-    public float getRating() { return rating; }
+    public int getUserId() {
+        return userId;
+    }
 
-    //timestamp
-    public void setTimestamp(long timestamp) { this.timestamp = timestamp; }
-    public long getTimestamp() { return timestamp; }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 }

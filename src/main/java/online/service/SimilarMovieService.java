@@ -20,7 +20,7 @@ public class SimilarMovieService extends HttpServlet {
             response.setHeader("Access-Control-Allow-Origin", "*");
 
             // 电影id
-            String movieid = request.getParameter("id");
+            String movieid = request.getParameter("movieId");
             // 相似电影数量
             String size = request.getParameter("size");
             // 计算相似度方法

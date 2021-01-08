@@ -1,31 +1,46 @@
 package online.model;
 import java.util.ArrayList;
+/**
+ * Embedding Class, contains embedding vector and related calculation
+ */
 public class Embedding {
-    ArrayList<Float> vec;
-    public Embedding(Embedding emb) {
-        this.vec = emb.vec;
+    //embedding vector
+    ArrayList<Float> embVector;
+
+    public Embedding(){
+        this.embVector = new ArrayList<>();
     }
-    public Embedding() {
-        vec = new ArrayList<>();
+
+    public Embedding(ArrayList<Float> embVector){
+        this.embVector = embVector;
     }
-    public void add_element (Float temp){
-        vec.add(temp);
+
+    public void addDim(Float element){
+        this.embVector.add(element);
     }
-    public ArrayList<Float> Get_vec() {
-        return vec;
+
+    public ArrayList<Float> getEmbVector() {
+        return embVector;
     }
-    public void set_vec(ArrayList<Float> vec) {
-        this.vec = vec;
+
+    public void setEmbVector(ArrayList<Float> embVector) {
+        this.embVector = embVector;
     }
-    public double calculated_similarity(Embedding other_emb){
-        double dot_product = 0;
-        double denominateA = 0;
-        double denominateB = 0;
-        for (int i = 0; i < this.vec.size(); ++ i) {
-            dot_product += this.vec.get(i) * other_emb.Get_vec().get(i);
-            denominateA += this.vec.get(i) * this.vec.get(i);
-            denominateB += other_emb.Get_vec().get(i) * other_emb.Get_vec().get(i);
+
+    //calculate cosine similarity between two embeddings
+    public double calculateSimilarity(Embedding otherEmb){
+        if (null == embVector || null == otherEmb || null == otherEmb.getEmbVector()
+                || embVector.size() != otherEmb.getEmbVector().size()){
+            return -1;
         }
-        return dot_product / Math.sqrt(denominateA) * Math.sqrt(denominateB);
+        double dotProduct = 0;
+        double denominator1 = 0;
+        double denominator2 = 0;
+        for (int i = 0; i < embVector.size(); i++){
+            dotProduct += embVector.get(i) * otherEmb.getEmbVector().get(i);
+            denominator1 += embVector.get(i) * embVector.get(i);
+            denominator2 += otherEmb.getEmbVector().get(i) * otherEmb.getEmbVector().get(i);
+        }
+        return dotProduct / (Math.sqrt(denominator1) * Math.sqrt(denominator2));
     }
 }

@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="movia" />
         <module name="Movia" />
+        <module name="Movia-main" />
       </profile>
     </annotationProcessing>
   </component>

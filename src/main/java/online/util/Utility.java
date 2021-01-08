@@ -7,7 +7,7 @@ public class Utility {
         String[] embStrings = embStr.split("\\s");
         Embedding emb = new Embedding();
         for(String element : embStrings) {
-            emb.add_element(Float.parseFloat(element));
+            emb.addDim(Float.parseFloat(element));
         }
         return emb;
     }

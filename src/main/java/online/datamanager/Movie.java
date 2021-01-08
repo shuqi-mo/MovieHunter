@@ -3,135 +3,161 @@ package online.datamanager;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import online.model.Embedding;
-import java.util.*;
-/*
-电影成员依次为
-电影编号（主码）
-电影名
-导演
-编剧
-电影类型
-主演
-制片地区
-语言
-上映时间
-片长
-评分次数
-均分
- */
-public class Movie{
-    //电影编号（主码）
-    int id;
-    String title;
-    String director;
-    String screenwriter;
-    ArrayList<String> genres;
-    ArrayList<String> Starring;
-    String Production_Country;
-    String language;
-    int release_time;
-    int length;
-    int rating_num;
-    double average_rating;
-    //
-    String imb_id;
-    String tmb_id;
 
-    //
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Movie Class, contains attributes loaded from movielens movies.csv and other advanced data like averageRating, emb, etc.
+ */
+public class Movie {
+    //电影编号（主码）
+    int movieId;
+    //电影名
+    String title;
+    //上映时间
+    int releaseYear;
+    String imdbId;
+    String tmdbId;
+    //题材
+    List<String> genres;
+    //点击数
+    int ratingNumber;
+    //均分
+    double averageRating;
+
+    //embedding of the movie
     @JsonIgnore
     Embedding emb;
 
-    //用户-电影-用户评分
+    //all rating scores list
     @JsonIgnore
-    ArrayList<Rating> ratings;
+    List<Rating> ratings;
 
     @JsonIgnore
     Map<String, String> movieFeatures;
 
-    //评分最高的十部电影
-    static final int TOP_RATING_SIZE = 10;
+    final int TOP_RATING_SIZE = 10;
 
     @JsonSerialize(using = RatingListSerializer.class)
     List<Rating> topRatings;
-    //
-    public Movie(){
-        this.rating_num = 0;
-        this.average_rating = 0;
-        ratings = new ArrayList<>();
-        genres = new ArrayList<>();
-        topRatings = new LinkedList<>();
-        emb = null;
-        movieFeatures = null;
+
+    public Movie() {
+        ratingNumber = 0;
+        averageRating = 0;
+        this.genres = new ArrayList<>();
+        this.ratings = new ArrayList<>();
+        this.topRatings = new LinkedList<>();
+        this.emb = null;
+        this.movieFeatures = null;
     }
-    //Id
-    public void setId (int id) { this.id = id; }
-    public int getId() { return id; }
 
-    //Title
-    public void setTitle (String title) { this.title = title; }
-    public String getTitle () { return title; }
+    public int getMovieId() {
+        return movieId;
+    }
 
-    //Director
-    public void setDirector(String director) { this.director = director; }
-    public String getDirector() { return director; }
+    public void setMovieId(int movieId) {
+        this.movieId = movieId;
+    }
 
-    //Screenwriter
-    public void setScreenwriter(String screenwriter) { this.screenwriter = screenwriter; }
-    public String getScreenwriter() { return screenwriter; }
+    public String getTitle() {
+        return title;
+    }
 
-    //Genre
-    public void addGenre (String temp) { this.genres.add(temp); }
-    public void setGenres (ArrayList<String> genres) { this.genres = genres; }
-    public ArrayList<String> getGenres() { return genres; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    //Starring
-    public void setStarring(ArrayList<String> starring) { Starring = starring; }
-    public ArrayList<String> getStarring() { return Starring; }
+    public int getReleaseYear() {
+        return releaseYear;
+    }
 
-    //Production_Country
-    public void setProduction_Country(String production_Country) { Production_Country = production_Country; }
-    public String getProduction_Country() { return Production_Country; }
+    public void setReleaseYear(int releaseYear) {
+        this.releaseYear = releaseYear;
+    }
 
-    //Language
-    public void setLanguage(String language) { this.language = language; }
-    public String getLanguage() { return language; }
+    public List<String> getGenres() {
+        return genres;
+    }
 
-    //Release_time
-    public void setRelease_time(int release_time) { this.release_time = release_time; }
-    public int getRelease_time () { return release_time; }
+    public void addGenre(String genre){
+        this.genres.add(genre);
+    }
 
-    //length
-    public void setLength(int length) { this.length = length; }
-    public int getLength() { return length; }
+    public void setGenres(List<String> genres) {
+        this.genres = genres;
+    }
 
-    //rating_num
-    public int getRating_num() { return rating_num; }
+    public List<Rating> getRatings() {
+        return ratings;
+    }
 
-    //average_rating
-    public double getAverage_rating() { return average_rating; }
-
-    //Imb_id
-    public void setImb_id(String imb_id) { this.imb_id = imb_id; }
-    public String getImb_id() { return imb_id; }
-
-    //Tmb_id
-    public void setTmb_id(String tmb_id) { this.tmb_id = tmb_id; }
-    public String getTmb_id() { return tmb_id; }
-
-    //emb
-    public void setEmb(Embedding emb) { this.emb = emb; }
-    public Embedding getEmb() { return emb; }
-
-    //ratings
-    public ArrayList<Rating> getRatings() { return ratings; }
-    public void addRatings (Rating rating) {
-        ++ this.rating_num;
+    public void addRating(Rating rating) {
+        averageRating = (averageRating * ratingNumber + rating.getScore()) / (ratingNumber+1);
+        ratingNumber++;
         this.ratings.add(rating);
-        this.average_rating = (this.average_rating * (this.rating_num - 1) + rating.getRating()) / this.rating_num;
+        addTopRating(rating);
     }
 
-    //movieFeatures
-    public void setMovieFeatures(Map<String, String> movieFeatures) { this.movieFeatures = movieFeatures; }
-    public Map<String, String> getMovieFeatures() { return movieFeatures; }
-}
+    public void addTopRating(Rating rating){
+        if (this.topRatings.isEmpty()){
+            this.topRatings.add(rating);
+        }else{
+            int index = 0;
+            for (Rating topRating : this.topRatings){
+                if (topRating.getScore() >= rating.getScore()){
+                    break;
+                }
+                index ++;
+            }
+            topRatings.add(index, rating);
+            if (topRatings.size() > TOP_RATING_SIZE) {
+                topRatings.remove(0);
+            }
+        }
+    }
 
+    public String getImdbId() {
+        return imdbId;
+    }
+
+    public void setImdbId(String imdbId) {
+        this.imdbId = imdbId;
+    }
+
+    public String getTmdbId() {
+        return tmdbId;
+    }
+
+    public void setTmdbId(String tmdbId) {
+        this.tmdbId = tmdbId;
+    }
+
+    public int getRatingNumber() {
+        return ratingNumber;
+    }
+
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public Embedding getEmb() {
+        return emb;
+    }
+
+    public void setEmb(Embedding emb) {
+        this.emb = emb;
+    }
+
+    public Map<String, String> getMovieFeatures() {
+        return movieFeatures;
+    }
+
+    public void setMovieFeatures(Map<String, String> movieFeatures) {
+        this.movieFeatures = movieFeatures;
+    }
+}
