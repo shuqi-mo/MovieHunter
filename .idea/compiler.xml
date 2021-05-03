@@ -9,6 +9,7 @@
         <module name="movia" />
         <module name="Movia" />
         <module name="Movia-main" />
+        <module name="MovieHunter" />
       </profile>
     </annotationProcessing>
   </component>
